@@ -1,0 +1,25 @@
+{
+  "name": "revenue-enablement-hub-studio",
+  "version": "1.0.0",
+  "description": "Sanity Studio for Revenue Enablement Hub",
+  "main": "index.js",
+  "scripts": {
+    "dev": "sanity dev",
+    "start": "sanity start",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sanity",
+    "cms",
+    "revenue",
+    "enablement",
+    "training"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "styled-components": "^6.1.19"
+  }
+}
