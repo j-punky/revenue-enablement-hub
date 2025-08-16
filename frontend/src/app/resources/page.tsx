@@ -1,10 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import { Search, Filter, Download, ExternalLink } from 'lucide-react'
+import { Search, Download, ExternalLink } from 'lucide-react'
 import { DEPARTMENT_NAMES, RESOURCE_TYPE_NAMES } from '@/lib/types'
 import { getDepartmentColor, getResourceTypeIcon, formatDate } from '@/lib/utils'
-import { cn } from '@/lib/utils'
 
 // Mock data - in real app this would come from Sanity
 const mockResources = [
@@ -261,7 +260,7 @@ export default function ResourcesPage() {
           </div>
           <h3 className="text-lg font-medium text-gray-900 mb-2">No resources found</h3>
           <p className="text-gray-600">
-            Try adjusting your search terms or filters to find what you're looking for.
+            Try adjusting your search terms or filters to find what you&apos;re looking for.
           </p>
         </div>
       )}

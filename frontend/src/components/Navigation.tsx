@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Search, BookOpen, Users, Settings, Menu, X } from 'lucide-react'
+import { Search, BookOpen, Users, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
 import { DEPARTMENT_NAMES } from '@/lib/types'

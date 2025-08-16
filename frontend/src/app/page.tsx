@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { BookOpen, Users, Clock, TrendingUp, ArrowRight } from 'lucide-react'
-import { DEPARTMENT_NAMES, RESOURCE_TYPE_NAMES } from '@/lib/types'
+import { DEPARTMENT_NAMES } from '@/lib/types'
 import { getDepartmentColor, getResourceTypeIcon } from '@/lib/utils'
 
 // Mock data for demonstration - in real app this would come from Sanity

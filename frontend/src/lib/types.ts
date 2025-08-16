@@ -1,3 +1,27 @@
+// Sanity image type
+interface SanityImage {
+  _type: 'image'
+  asset: {
+    _ref: string
+    _type: 'reference'
+  }
+  hotspot?: {
+    x: number
+    y: number
+    height: number
+    width: number
+  }
+}
+
+// Sanity file type
+interface SanityFile {
+  _type: 'file'
+  asset: {
+    _ref: string
+    _type: 'reference'
+  }
+}
+
 export interface Resource {
   _id: string
   title: string
@@ -7,8 +31,8 @@ export interface Resource {
   description?: string
   department: Department
   resourceType: ResourceType
-  content?: any[]
-  downloadableFiles?: any[]
+  content?: unknown[]
+  downloadableFiles?: SanityFile[]
   externalUrl?: string
   isCustomerFacing?: boolean
   accessLevel: AccessLevel
@@ -19,7 +43,7 @@ export interface Resource {
     name: string
     email: string
     department: string
-    avatar?: any
+    avatar?: SanityImage
   }
   categories?: {
     title: string
@@ -60,7 +84,7 @@ export interface LearningModule {
 export interface Lesson {
   title: string
   order: number
-  content?: any[]
+  content?: unknown[]
   estimatedDuration?: number
   resources?: {
     title: string
@@ -90,7 +114,7 @@ export interface User {
   email: string
   role: UserRole
   department: Department
-  avatar?: any
+  avatar?: SanityImage
   bio?: string
   isActive: boolean
   joinedAt: string
