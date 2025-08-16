@@ -10,16 +10,11 @@
     "deploy": "sanity deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "sanity",
-    "cms",
-    "revenue",
-    "enablement",
-    "training"
-  ],
+  "keywords": ["sanity", "cms", "revenue", "enablement", "training"],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "styled-components": "^6.1.19"
+    "@sanity/vision": "^4.4.1",
+    "sanity": "^4.4.1"
   }
 }
