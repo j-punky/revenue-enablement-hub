@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Search, Clock, BookOpen, Play, CheckCircle } from 'lucide-react'
-import { DEPARTMENT_NAMES, MODULE_TYPE_NAMES } from '@/lib/types'
+import { DEPARTMENT_NAMES, MODULE_TYPE_NAMES, Department } from '@/lib/types'
 import { getDepartmentColor, getResourceTypeIcon, formatDuration, getDifficultyColor } from '@/lib/utils'
 import Link from 'next/link'
 
@@ -14,7 +14,7 @@ const mockModules = [
     slug: { current: 'new-hire-revenue-onboarding' },
     description: 'Comprehensive onboarding program for new Revenue team members covering company culture, processes, and tools.',
     moduleType: 'onboarding' as const,
-    targetDepartments: ['sales', 'customer-success', 'partnerships'] as const,
+    targetDepartments: ['sales', 'customer-success', 'partnerships'] as Department[],
     difficulty: 'beginner' as const,
     estimatedDuration: 240,
     lessonsCount: 12,
@@ -27,7 +27,7 @@ const mockModules = [
     slug: { current: 'advanced-sales-techniques' },
     description: 'Master advanced sales methodologies including MEDDIC, Challenger Sale, and consultative selling approaches.',
     moduleType: 'sales-training' as const,
-    targetDepartments: ['sales', 'sales-engineering'] as const,
+    targetDepartments: ['sales', 'sales-engineering'] as Department[],
     difficulty: 'advanced' as const,
     estimatedDuration: 180,
     lessonsCount: 8,
@@ -40,7 +40,7 @@ const mockModules = [
     slug: { current: 'customer-success-fundamentals' },
     description: 'Learn the core principles of customer success, retention strategies, and expansion techniques.',
     moduleType: 'product-training' as const,
-    targetDepartments: ['customer-success'] as const,
+    targetDepartments: ['customer-success'] as Department[],
     difficulty: 'intermediate' as const,
     estimatedDuration: 150,
     lessonsCount: 10,
@@ -53,7 +53,7 @@ const mockModules = [
     slug: { current: 'partnership-development-mastery' },
     description: 'Strategic approach to building and managing successful partnerships that drive revenue growth.',
     moduleType: 'sales-training' as const,
-    targetDepartments: ['partnerships'] as const,
+    targetDepartments: ['partnerships'] as Department[],
     difficulty: 'intermediate' as const,
     estimatedDuration: 120,
     lessonsCount: 6,
@@ -66,7 +66,7 @@ const mockModules = [
     slug: { current: 'sales-operations-excellence' },
     description: 'Optimize sales processes, implement effective reporting, and drive operational efficiency.',
     moduleType: 'process-training' as const,
-    targetDepartments: ['sales-ops'] as const,
+    targetDepartments: ['sales-ops'] as Department[],
     difficulty: 'advanced' as const,
     estimatedDuration: 200,
     lessonsCount: 14,
@@ -79,7 +79,7 @@ const mockModules = [
     slug: { current: 'solutions-architecture-certification' },
     description: 'Complete certification program for solutions architects covering technical design and customer engagement.',
     moduleType: 'certification' as const,
-    targetDepartments: ['solutions-architecture'] as const,
+    targetDepartments: ['solutions-architecture'] as Department[],
     difficulty: 'advanced' as const,
     estimatedDuration: 300,
     lessonsCount: 20,
@@ -101,7 +101,7 @@ export default function ModulesPage() {
     const matchesModuleType = selectedModuleType === 'all' || module.moduleType === selectedModuleType
     const matchesDifficulty = selectedDifficulty === 'all' || module.difficulty === selectedDifficulty
     const matchesDepartment = selectedDepartment === 'all' || 
-                             module.targetDepartments.includes(selectedDepartment as keyof typeof DEPARTMENT_NAMES)
+                             (selectedDepartment in DEPARTMENT_NAMES && module.targetDepartments.includes(selectedDepartment as Department))
 
     return matchesSearch && matchesModuleType && matchesDifficulty && matchesDepartment
   })
